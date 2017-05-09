@@ -9,13 +9,7 @@ class FixController extends Command
 {
     public function actionIndex($folder)
     {
-        $files = FileHelper::findFiles($folder, ['recursive' => true, 'filter' => function($path) {
-            if (strtolower(FileHelper::getFileInfo($path)->extension) == 'md') {
-                return true;
-            }
-            
-            return false;
-        }]);
+        $files = FileHelper::findFiles($folder, ['recursive' => true, 'caseSensitive' => false, ['only'=>['*.md']]]);
 
         foreach ($files as $file) {
             $this->output('+ ' . $file);
