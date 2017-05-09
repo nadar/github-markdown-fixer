@@ -25,6 +25,7 @@ class FixController extends Command
 
     private function parseContent($content)
     {
-        return preg_replace('/xC2xA0/',' ',$content);
+        $content =  preg_replace('/xC2xA0/',' ',$content);
+        return preg_replace('~\x{00a0}~siu',' ',$content);
     }
 }
