@@ -1,4 +1,7 @@
 {
+    "name" : "nadar/github-markdown-fixer",
+    "description" : "github markdown fixer",
+    "type" : "project",
     "require": {
         "luyadev/luya-core": "1.0.0-RC3"
     },
@@ -6,5 +9,7 @@
         "psr-4" : {
             "gmf\\" : "src/"
         }
-    }
+    },
+    
+    "bin" : ["src/gmf"]
 }
