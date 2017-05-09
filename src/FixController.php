@@ -18,6 +18,7 @@ class FixController extends Command
         }]);
 
         foreach ($files as $file) {
+            $this->output('+ ' . $file);
             $content = file_get_contents($file);
             file_put_contents($file, $this->parseContent($content));
         }
