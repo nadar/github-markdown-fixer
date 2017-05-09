@@ -1,0 +1,10 @@
+{
+    "require": {
+        "luyadev/luya-core": "1.0.0-RC3"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "gmf\\" : "src/"
+        }
+    }
+}
