@@ -1,99 +1,65 @@
-# SMS wrapper class for ASPSMS
+# Admin Assets
 
-[![Latest Stable Version](https://poser.pugx.org/nadar/aspsms/v/stable)](https://packagist.org/packages/nadar/aspsms)
-[![Total Downloads](https://poser.pugx.org/nadar/aspsms/downloads)](https://packagist.org/packages/nadar/aspsms)
-     
-A very simple to use sms sending class for the [aspsms.com](http://aspsms.com) gateway by [indielab](http://www.indielab.ch).
+This section describes how to add assets (css or javascript) files to your administration module, to make sure are depending and initializing your files at the right point, all your custom assets should depend on the `admin\assets\Main` packaged.
 
-#   ad non
-  break  in    3changes
+### Example Bundle
 
-## Installation
-  
-The recommended way to install is through [Composer](http://getcomposer.org):
+Below en example administration asset file depending on the administration main asset bundle:
 
-```sh
-composer require nadar/aspsms:~1.0.0
-```
-   ff   asdfas
-## Usage
- 
-##   asdf
- 
 ```php
 <?php
 
-use Aspsms\Aspsms;
+namespace app\modules\myadmin\assets;
 
-// create object class with originator option
-$aspsms = new Aspsms('<YOUR_KEY>', '<YOUR_PASSWORD>', array(
-    'Originator' => '<MY_SENDER_NAME>'
-));
+class MyAdminAsset extends \luya\web\Asset
+{
+    public $sourcePath = '@myadmin/resources';
 
-// set message and recipients with tracking their individual tracking numbers.
-// attention: verify your tracking numbers first with $aspsms->verifyTrackingNumber(..);
-$send = $aspsms->sendTextSms('<YOUR_SMS_MESSAGE>', array(
-    '<TRACKING_NR1>' => '<MOBILE_PHONE_NR1>',
-    '<TRACKING_NR2>' => '<MOBILE_PHONE_NR2>',
-    '<TRACKING_NR3>' => '<MOBILE_PHONE_NR3>'
-));
+    public $js = [
+        'js/johndoe.js',
+    ];
 
-// the message was rejected by aspsms or your authentication credentials where wrong.
-if (!$send) {
-    echo "[ASPSMS] Error while sending text message: " . $aspsms->getSendStatus();
+    // important to solve all javascript dependency issues relating jquery, bower, angular, ...
+    public $depends = [
+        'admin\assets\Main',
+    ];
 }
-
-// aspsms takes a little time to delivery your message. You can also send the message and
-// store the tracking numbers in a database, so you could retrieve the delivery status later.
-sleep(10);
-
-// get deliver status response
-$status1 = $aspsms->deliveryStatus('<TRACKING_NR1>');
-$status2 = $aspsms->deliveryStatus('<TRACKING_NR2>');
-$status3 = $aspsms->deliveryStatus('<TRACKING_NR3>');
-
-var_dump($status1, $status2, $status3);
 ```
 
-## Contributing
+> The asset bundle itself should always stored in a `assets` folder where the resource files for the asset should always located in a `resources` folder.
 
-#### Quick guide:
+### Embed the asset
 
-+ Fork the repo.
-+ Install dependencies: `composer install`.
-+ Make changes.
-+ If you are adding functionality or fixing a bug - Please add a unit test!
-+ Ensure coding standards.
+To embed the above created example asset file stored in your admin module you hav to add the asset bundle into the {{\luya\base\AdminModuleInterface::getAdminAssets}} method of the belonging `Module.php` file as shown below:
 
-#### Unit Tests
+```php
+<?php
+namespace app\modules\myadmin;
 
-In order to run the test suite, install the development dependencies:
-
-```sh
-composer install
+class Module extends \luya\admin\base\Module
+{
+    /**
+     * Returns all Asset files to registered in the administration interfaces.
+     * 
+     * As the adminstration UI is written in angular, the assets must be pre assigned to the adminisration there for the `getAdminAssets()` method exists.
+     * 
+     * ```php
+     * public function getAdminAssets()
+     * {
+     *     return [
+     *          'luya\admin\assets\Main',
+     *          'luya\admin\assets\Flow',
+     *     ];
+     * }
+     * ```
+     * 
+     * @return array An array with with assets files where the array has no key and the value is the path to the asset class.
+     */
+    public function getAdminAssets()
+    {
+        return [
+            'app\modules\myadmin\assets\MyAdminAsset'
+        ];
+    }
+}
 ```
-
-Rename the `phpunit.xml.dist` file to `phpunit.xml`, then uncomment the following lines and add your const values:
-
-```xml
-<php>
-    <!--<const name="USER_KEY" value="" />-->
-    <!--<const name="USER_PASS" value="" />-->
-    <!--<const name="SMS_NUMBER" value="" />-->
-    <!--<const name="SMS_TRACKING" value="" />-->
-</php>
-```
-
-Test your code with the following command:
-
-```sh
-./vendor/bin/phpunit
-```
-
-Run the coding standard fixer before send a new pull request.
-
-```sh
-./vendor/bin/php-cs-fixer fix src/
-```
-
-You're done. Thanks!
