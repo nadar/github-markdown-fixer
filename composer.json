@@ -2,6 +2,9 @@
     "name" : "nadar/github-markdown-fixer",
     "description" : "github markdown fixer",
     "type" : "project",
+    "keywords" : ["github", "markdown", "fixer", "gfm"],
+    "license": "MIT",
+    "homepage" : "https://github.com/nadar",
     "require": {
         "luyadev/luya-core": "1.0.0-RC3"
     },
@@ -10,6 +13,10 @@
             "gmf\\" : "src/"
         }
     },
-    
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
     "bin" : ["src/gmf"]
 }
