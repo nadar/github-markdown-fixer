@@ -9,12 +9,21 @@ class FixController extends Command
 {
     public function actionIndex($folder)
     {
-        $files = FileHelper::findFiles($folder, ['recursive' => true, 'caseSensitive' => false, ['only'=>['*.md']]]);
+        $files = FileHelper::findFiles($folder, [
+            'recursive' => true, 
+            'caseSensitive' => false, 
+            'only'=> ['*.md'],
+        ]);
 
         foreach ($files as $file) {
-            $this->output('+ ' . $file);
             $content = file_get_contents($file);
-            file_put_contents($file, $this->parseContent($content));
+            $newcontent = $this->parseContent($content);
+            
+            if (strcmp($content, $newcontent) !== 0) {
+                $this->outputSuccess('+ Fixed: ' . $file);
+            }
+            
+            file_put_contents($file, $newcontent);
         }
     }
 
