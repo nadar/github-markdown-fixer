@@ -1,10 +1,11 @@
 #!/usr/bin/env php
 <?php
+
 // loaders array
 $loaders = [
     'vendor/autoload.php',
-    __DIR__ . '/../vendor/autoload.php',
-    __DIR__ . '/../../vendor/autoload.php',
+    '/../vendor/autoload.php',
+    '/../../vendor/autoload.php',
 ];
 // find vendor if exists
 foreach ($loaders as $file) {
@@ -14,10 +15,13 @@ foreach ($loaders as $file) {
     }
 }
 
-// use the luya boot wrapping class
 $boot = new \luya\Boot();
-$boot->setBaseYiiFile(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
-$boot->setConfigArray(['id' => 'gmf', 'basePath' => dirname(__DIR__), 'controllerMap' => [
-    'fix' => 'gmf\FixController',
-]]);
-$boot->run();
+$boot->setBaseYiiFile($vendor . '/yiisoft/yii2/Yii.php');
+$boot->setConfigArray([
+    'id' => 'gmf', 
+    'basePath' => dirname(__DIR__), 
+    'controllerMap' => [
+        'fix' => 'gmf\FixController',
+    ],
+]);
+$boot->applicationConsole();
