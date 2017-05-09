@@ -25,6 +25,8 @@ class FixController extends Command
             
             file_put_contents($file, $newcontent);
         }
+        
+        return $this->outputInfo(count($files) . ' files checked.');
     }
 
     private function parseContent($content)
