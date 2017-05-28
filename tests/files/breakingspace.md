@@ -1,1 +1,5 @@
 # Space
+
+# Ctrl
+
+# Shift
