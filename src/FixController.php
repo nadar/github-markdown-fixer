@@ -31,7 +31,12 @@ class FixController extends Command
 
     private function parseContent($content)
     {
+    	// replace breaking spaces with spaces
         $content = preg_replace('/xC2xA0/', ' ', $content);
-        return preg_replace('~\x{00a0}~siu', ' ', $content);
+        $content = preg_replace('~\x{00a0}~siu', ' ', $content);
+        
+        $content = preg_replace('/\t/', '    ', $content);
+        
+        return $content;
     }
 }
