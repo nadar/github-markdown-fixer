@@ -3,7 +3,7 @@
 Fixing Markdown Files
 
 + Find Breaking Spaces in Markdown Files and replace them with normal Space. As GitHub Markdown Renderer does correctly render Markdown Tags with Breaking Spaces. https://github.com/github/markup/issues/1054#issuecomment-300061967
-+ Replace Tabs with 4 spaces
++ Replace Tabs with 4 spaces.
 
 ## Usage
 
