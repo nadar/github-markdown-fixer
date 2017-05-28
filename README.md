@@ -14,6 +14,8 @@ This project fixes your markdown files in order to have render them nicly within
 
 Add ths github markdown fixer to your project, within the `require-dev` section:
 
+> IF YOU GET A MINIMUM STABILITY / COMPOSER ERROR USE: `"minimum-stability" : "RC"` IN YOUR COMPOSER.JSON.
+
 ```sh
 composer require nadar/github-markdown-fixer --dev
 ```
