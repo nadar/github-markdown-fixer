@@ -4,16 +4,18 @@
 [![Total Downloads](https://poser.pugx.org/nadar/github-markdown-fixer/downloads)](https://packagist.org/packages/nadar/github-markdown-fixer)
 [![Latest Stable Version](https://poser.pugx.org/nadar/github-markdown-fixer/v/stable)](https://packagist.org/packages/nadar/github-markdown-fixer)
 
-This project fixes your markdown files in order to have render them nicly withing GitHub.
+This project fixes your Markdown files in order to render them nicely with GitHub and other Renderers.
+
+Currently built in features:
 
 + Replace all tabs with 4 spaces.
-+ Find Breaking Spaces and replace them with normal spaces. [GitHub Markdown Renderer problems with Breaking Spaces](https://github.com/github/markup/issues/1054#issuecomment-300061967).
++ Find none breaking spaces problem. [github/markup issue problem description](https://github.com/github/markup/issues/1054#issuecomment-300061967).
 
 ![GitHub Markdown Fixer in Action](screenshot.png)
 
 ## Usage
 
-Add ths github markdown fixer to your project, within the `require-dev` section:
+Add the `nadar/github-markdown-fixer` to your project, within the `require-dev` section:
 
 > IF YOU GET A MINIMUM STABILITY / COMPOSER ERROR USE: `"minimum-stability" : "RC"` IN YOUR COMPOSER.JSON.
 
@@ -31,4 +33,4 @@ Go into your Terminal an run the Fixer:
 
 |argument|description
 |--------|----------
-|--dry	 |run command in dry mode, does not change file contents.
+|--dry     |run command in dry mode, does not change file contents.
