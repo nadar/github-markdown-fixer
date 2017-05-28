@@ -5,6 +5,16 @@
     "keywords" : ["github", "markdown", "fixer", "gfm"],
     "license": "MIT",
     "homepage" : "https://github.com/nadar",
+    "authors" : [
+        {
+            "name" : "Basil Suter",
+            "email" : "git@nadar.io",
+            "homepage" : "https://github.com/nadar"
+        }
+    ],
+    "support" : {
+        "issues" : "https://github.com/nadar/github-markdown-fixer/issues"
+    },
     "require": {
         "luyadev/luya-core": "1.0.0-RC3"
     },
@@ -13,10 +23,18 @@
             "gmf\\" : "src/"
         }
     },
+    "autoload-dev" : {
+        "psr-4" : {
+            "gmf\\tests\\" : "tests/"
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
     },
-    "bin" : ["src/gmf"]
+    "bin" : ["src/gmf"],
+    "require-dev": {
+        "luyadev/luya-testsuite": "~1.0.0"
+    }
 }

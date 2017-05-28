@@ -2,6 +2,7 @@
 
 [![LUYA](https://img.shields.io/badge/Powered%20by-LUYA-brightgreen.svg)](https://luya.io)
 [![Total Downloads](https://poser.pugx.org/nadar/github-markdown-fixer/downloads)](https://packagist.org/packages/nadar/github-markdown-fixer)
+[![Latest Stable Version](https://poser.pugx.org/nadar/github-markdown-fixer/v/stable)](https://packagist.org/packages/nadar/github-markdown-fixer)
 
 This project fixes your markdown files in order to have render them nicly withing GitHub.
 
@@ -26,3 +27,8 @@ Go into your Terminal an run the Fixer:
 ./vendor/bin/gmf fix /folder
 ```
 
+### Options
+
+|argument|description
+|--------|----------
+|--dry	 |run command in dry mode, does not change file contents.

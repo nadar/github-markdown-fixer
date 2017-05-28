@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
-
 // loaders array
 $loaders = [
     'vendor/autoload.php',
     '/../vendor/autoload.php',
     '/../../vendor/autoload.php',
+    '/../../../vendor/autoload.php',
 ];
 // find vendor if exists
 foreach ($loaders as $file) {
