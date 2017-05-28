@@ -54,6 +54,12 @@ class FixController extends Command
 
         foreach ($files as $file) {
             $content = $this->getFileContent($file);
+            
+            if (!$content) {
+            	$this->outputError("Unable to read file: " . $file);
+            	continue;
+            }
+            
             $newcontent = $this->parseContent($content);
             
             if (strcmp($content, $newcontent) !== 0) {

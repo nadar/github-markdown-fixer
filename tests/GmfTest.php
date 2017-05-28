@@ -32,7 +32,7 @@ class GmfTest extends ConsoleApplicationTestCase
 		$content = $ctrl->getFileContent('tests/files/tabs.md');
 		$this->assertSame('    Tabs', $ctrl->parseContent($content));
 		
-		$content = $ctrl->getFileContent('tests/files/breakingspace.md');
-		$this->assertSame('# Space', $ctrl->parseContent($content));
+		$content = $ctrl->getFileContent('tests/files/nonbreakingspace.md');
+		$this->assertSame('# Alt+Space', $ctrl->parseContent($content));
 	}
 }
