@@ -108,7 +108,7 @@ class FixController extends Command
     {
         // replace breaking spaces with spaces
         $content = preg_replace('/xC2xA0/', ' ', $content);
-        $content = preg_replace('~\x{00a0}~siu', ' ', $content);
+        $content = preg_replace('/\x{00a0}/siu', ' ', $content);
         
         // replace tabs with spaces
         $content = preg_replace('/\t/', '    ', $content);
