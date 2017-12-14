@@ -16,7 +16,7 @@
         "issues" : "https://github.com/nadar/github-markdown-fixer/issues"
     },
     "require": {
-        "luyadev/luya-core": "1.0.0-RC3"
+        "luyadev/luya-core": "~1.0.0"
     },
     "autoload" : {
         "psr-4" : {
@@ -33,7 +33,9 @@
             "dev-master": "1.0.x-dev"
         }
     },
-    "bin" : ["src/gmf"],
+    "bin" : [
+        "src/gmf"
+    ],
     "require-dev": {
         "luyadev/luya-testsuite": "~1.0.0"
     }

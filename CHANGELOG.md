@@ -4,8 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-1.0.3 (in progress)
+1.0.3 (12. December 2017)
 --------------------
+
++ Switch to stable luya release channel
 
 1.0.2 (28. May 2017)
 -------------------
