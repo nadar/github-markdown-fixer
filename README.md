@@ -9,15 +9,13 @@ This project fixes your Markdown files in order to render them nicely with GitHu
 Currently built in features:
 
 + Replace all tabs with 4 spaces.
-+ Fixes none breaking spaces problem [github/markup issue problem description](https://github.com/github/markup/issues/1054#issuecomment-300061967).
++ Fixes none breaking spaces problem ([github/markup issue problem description](https://github.com/github/markup/issues/1054#issuecomment-300061967)).
 
 ![GitHub Markdown Fixer in Action](screenshot.png)
 
 ## Usage
 
 Add the `nadar/github-markdown-fixer` to your project, within the `require-dev` section:
-
-> IF YOU GET A MINIMUM STABILITY / COMPOSER ERROR USE: `"minimum-stability" : "RC"` IN YOUR COMPOSER.JSON.
 
 ```sh
 composer require nadar/github-markdown-fixer --dev
@@ -33,4 +31,4 @@ Go into your Terminal an run the Fixer:
 
 |argument|description
 |--------|----------
-|--dry     |run command in dry mode, does not change file contents.
+|--dry     |run command in dry mode, does not change file contents, but display which files would change.
